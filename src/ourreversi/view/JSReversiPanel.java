@@ -1,4 +1,4 @@
-package OurReversi.model.view;
+package ourreversi.view;
 
 import javax.swing.JPanel;
 import javax.swing.event.MouseInputAdapter;
@@ -16,11 +16,12 @@ import java.util.Map;
 import java.util.HashMap;
 import java.util.List;
 
-import OurReversi.model.controller.IActionListener;
-import OurReversi.model.IReadOnlyModel;
-import OurReversi.model.cell.Cell;
-import OurReversi.model.cell.CellPosition;
-import OurReversi.model.cell.CellStatus;
+import ourreversi.cell.ICell;
+import ourreversi.controller.IActionListener;
+import ourreversi.model.IReadOnlyModel;
+import ourreversi.cell.CellPosition;
+import ourreversi.cell.CellStatus;
+import ourreversi.model.PlayerIdentity;
 
 /**
  * This class represents a custom JPanel for the Reversi game.
@@ -34,7 +35,7 @@ public class JSReversiPanel extends JPanel {
    */
   private final IReadOnlyModel model;
   // All the cells in the model. Only for observation
-  private List<Cell> allCells;
+  private List<ICell> allCells;
   // All the hexagon been in View
   protected Map<Polygon, CellPosition> allHexagon = new HashMap<>();
 
@@ -49,6 +50,8 @@ public class JSReversiPanel extends JPanel {
   );
   private IActionListener keyPressHandler;
   private IActionListener mouseClickHandler;
+
+  private PlayerIdentity playerIdentity;
 
 
   /**
@@ -87,7 +90,7 @@ public class JSReversiPanel extends JPanel {
    * Inner class to handle key events. This listener responds to specific key presses
    * to perform game actions such as passing the turn or placing a piece.
    */
-  private class KeyEventsListener implements KeyListener {
+  public class KeyEventsListener implements KeyListener {
 
     /**
      * No key released event.
@@ -145,9 +148,12 @@ public class JSReversiPanel extends JPanel {
         if (hex.contains(physicalP)) {
           printHexPosition(hexPosition);
           handleHexagonClick(hex, hexPosition);
-          break; // Stop the search once we find the hexagon
+          return; // Stop the search once we find the hexagon
         }
       }
+      chosenPosition = null;
+      mouseClickHandler.handleMousePressed(null);
+      repaint();
     }
 
 
@@ -167,14 +173,14 @@ public class JSReversiPanel extends JPanel {
     /**
      * Handles the logic for clicking on a hexagon, including selecting or deselecting it.
      *
-     * @param hex The hexagon that was clicked.
+     * @param hex         The hexagon that was clicked.
      * @param hexPosition The position of the clicked hexagon.
      */
     private void handleHexagonClick(Polygon hex, CellPosition hexPosition) {
       Polygon hexToChange = null;
 
       if (chosenPosition == null || !chosenPosition.equals(hexPosition)) {
-        for (Cell c : model.getAllCells()) {
+        for (ICell c : model.getAllCells()) {
           if (c.getPosition().equals(hexPosition) && c.getCellStatus()
                   == CellStatus.EMPTY) {
             hexToChange = hex;
@@ -186,10 +192,12 @@ public class JSReversiPanel extends JPanel {
       if (hexToChange != null) {
         chosenPosition = hexPosition;
         mouseClickHandler.handleMousePressed(hexPosition);
-      } else if (chosenPosition != null && chosenPosition.equals(hexPosition)) {
+
+      } else {
         chosenPosition = null;
         mouseClickHandler.handleMousePressed(null);
-      } // If none of the above conditions are true, chosenHex remains unchanged
+      }
+      // If none of the above conditions are true, chosenHex remains unchanged
 
       repaint();
     }
@@ -210,12 +218,12 @@ public class JSReversiPanel extends JPanel {
     g2d.setColor(Color.DARK_GRAY);
     g2d.fillRect(0, 0, getWidth(), getHeight());
     // Drawing hexagons based on the coordinate system
-    for (Cell cell : this.allCells) {
+    for (ICell cell : this.allCells) {
       if (cell.getCellStatus() == CellStatus.EMPTY) {
-        drawHexagon(g2d, cell.getPosition());
+        drawHexagon(g2d, (CellPosition) cell.getPosition());
       } else {
-        drawHexagon(g2d, cell.getPosition());
-        drawCircle(g2d, cell.getPosition()
+        drawHexagon(g2d, (CellPosition) cell.getPosition());
+        drawCircle(g2d, (CellPosition) cell.getPosition()
                 , cellColor.get(cell.getCellStatus()));
       }
     }
@@ -234,9 +242,9 @@ public class JSReversiPanel extends JPanel {
   /**
    * Draws a circle representing a game piece on the board.
    *
-   * @param g2d The Graphics2D object used for drawing.
+   * @param g2d      The Graphics2D object used for drawing.
    * @param position The position where the circle should be drawn.
-   * @param color The color of the circle to be drawn.
+   * @param color    The color of the circle to be drawn.
    */
   private void drawCircle(Graphics2D g2d, CellPosition position, Color color) {
     g2d.setColor(color);
@@ -249,7 +257,7 @@ public class JSReversiPanel extends JPanel {
   /**
    * Draws a hexagon at a specified position on the board.
    *
-   * @param g2d The Graphics2D object used for drawing.
+   * @param g2d      The Graphics2D object used for drawing.
    * @param position The position where the hexagon should be drawn.
    */
   private void drawHexagon(Graphics2D g2d, CellPosition position) {
@@ -280,5 +288,46 @@ public class JSReversiPanel extends JPanel {
       g2d.setColor(Color.BLACK);
       g2d.drawPolygon(hex);
     }
+  }
+
+  /**
+   * Get the chosen position.
+   */
+  public Point getChosenPosition() {
+    for (Map.Entry<Polygon, CellPosition> entry : allHexagon.entrySet()) {
+      Polygon hex = entry.getKey();
+      CellPosition hexPosition = entry.getValue();
+
+      if (hexPosition.equals(this.chosenPosition)) {
+        int centerX = 0;
+        int centerY = 0;
+        int numPoints = hex.npoints;
+
+        for (int i = 0; i < numPoints; i++) {
+          centerX += hex.xpoints[i];
+          centerY += hex.ypoints[i];
+        }
+
+        centerX /= numPoints;
+        centerY /= numPoints;
+
+        return new Point(centerX, centerY);
+      }
+    }
+    return null; // Return null if no chosen position is found
+  }
+
+  /**
+   * Set the player identity.
+   */
+  public void setPlayerIdentity(PlayerIdentity identity) {
+    this.playerIdentity = identity;
+  }
+
+  /**
+   * Get the player identity.
+   */
+  public PlayerIdentity getPlayerIdentity() {
+    return this.playerIdentity;
   }
 }

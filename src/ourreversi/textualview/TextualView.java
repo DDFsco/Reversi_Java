@@ -1,9 +1,9 @@
-package OurReversi.model.textualview;
+package ourreversi.textualview;
 
 import java.util.List;
 
-import OurReversi.model.IReversi;
-import OurReversi.model.cell.Cell;
+import ourreversi.cell.ICell;
+import ourreversi.model.IReversi;
 
 /**
  * A simple text-based rendering of the Klondike game.
@@ -40,7 +40,7 @@ public class TextualView implements ITextualView {
 
     // Draw top half of the graph
     int size = this.model.getGameSize();
-    List<Cell> cellList = this.model.getAllCells();
+    List<ICell> cellList = this.model.getAllCells();
     printFront(size, result, cellList);
     printMiddle(size, cellList, result);
     printBottom(size, result, cellList);
@@ -48,7 +48,7 @@ public class TextualView implements ITextualView {
   }
 
   // Print bottom of the grid.
-  private void printBottom(int size, StringBuilder result, List<Cell> cellList) {
+  private void printBottom(int size, StringBuilder result, List<ICell> cellList) {
     // Print bottom part of grid
     for (int line = 1; line < size + 1; line++) {
       // Space at front
@@ -65,7 +65,7 @@ public class TextualView implements ITextualView {
   }
 
   // Print middle of the grid.
-  private void printMiddle(int size, List<Cell> cellList, StringBuilder result) {
+  private void printMiddle(int size, List<ICell> cellList, StringBuilder result) {
     // Print middle part of grid
     for (int cell = 0; cell < size * 2 + 1; cell++) {
       printCell(cellList, result);
@@ -77,7 +77,7 @@ public class TextualView implements ITextualView {
   }
 
   // Print top of the grid.
-  private void printFront(int size, StringBuilder result, List<Cell> cellList) {
+  private void printFront(int size, StringBuilder result, List<ICell> cellList) {
     for (int line = size; line > 0; line--) {
       // Space at front
       result.append(" ".repeat(line));
@@ -93,7 +93,7 @@ public class TextualView implements ITextualView {
   }
 
   // Print the cell into string
-  private void printCell(List<Cell> cellList, StringBuilder result) {
+  private void printCell(List<ICell> cellList, StringBuilder result) {
     switch (cellList.get(0).getCellStatus()) {
       case BLACK:
         result.append("X");

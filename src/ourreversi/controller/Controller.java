@@ -1,11 +1,11 @@
-package OurReversi.model.controller;
+package ourreversi.controller;
 
 import java.awt.event.KeyEvent;
 
-import OurReversi.model.IPlayer;
-import OurReversi.model.IReversi;
-import OurReversi.model.cell.CellPosition;
-import OurReversi.model.view.IReversiView;
+import ourreversi.cell.ICellPosition;
+import ourreversi.model.IPlayer;
+import ourreversi.model.IReversi;
+import ourreversi.view.IReversiView;
 
 /**
  * Represent the controller of the Reversi.
@@ -30,6 +30,7 @@ public class Controller implements IActionListener {
     this.view = viewPlayer;
     viewPlayer.setKeyPressHandler(this);
     viewPlayer.setMousePressHandler(this);
+    viewPlayer.setPlayer(player.getPlayerIdentity());
     model.addController(this);
     model.addPlayer(player);
     view.setVisible(true);
@@ -64,7 +65,6 @@ public class Controller implements IActionListener {
         model.playerPass();
       }
       if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-        System.out.println();
         if (model.getChosenCell() != null) {
           System.out.println("Place the piece");
           model.playerMove();
@@ -80,7 +80,7 @@ public class Controller implements IActionListener {
    * Base on the cell position provided. Modify the model.
    */
   @Override
-  public void handleMousePressed(CellPosition cell) {
+  public void handleMousePressed(ICellPosition cell) {
     if (model.isGameOver()) {
       System.out.println("Game is Over.");
       return;
@@ -96,7 +96,7 @@ public class Controller implements IActionListener {
         try {
           model.playerChooseCell(cell);
           System.out.println("Select cell");
-        } catch (IllegalStateException exception) {
+        } catch (IllegalArgumentException exception) {
           System.out.println("Catch deselect");
           model.playerDeselectCell();
         }
@@ -113,7 +113,7 @@ public class Controller implements IActionListener {
             this.player.getPlayerIdentity() == this.model.getCurrentPlayer()) {
       if (this.player.getGameLevel() != null) {
         if (!this.model.getAllCellsCanGo().isEmpty()) {
-          CellPosition choseCell = this.player.getGameLevel().chooseCell(this.model, this.player);
+          ICellPosition choseCell = this.player.getGameLevel().chooseCell(this.model, this.player);
           this.model.playerChooseCell(choseCell);
           this.model.playerMove();
         } else {

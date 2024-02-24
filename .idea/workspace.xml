@@ -4,19 +4,48 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="928718c9-eb26-4d2d-a9ab-c1422c0cd768" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HW3.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/BasicReversi.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/Chest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/IChest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/IReversi.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/testBasic.java" afterDir="false" />
+    <list default="true" id="928718c9-eb26-4d2d-a9ab-c1422c0cd768" name="Changes" comment="New">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ReadMe" beforeDir="false" afterPath="$PROJECT_DIR$/src/ReadMe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/adpater/CellAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/adpater/CellAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/adpater/ControllerAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/adpater/ControllerAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/adpater/ModelAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/adpater/ModelAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/adpater/ViewAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/adpater/ViewAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ourreversi/Reversi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ourreversi/Reversi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ourreversi/ReversiCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ourreversi/ReversiCreator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ourreversi/cell/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ourreversi/cell/Cell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ourreversi/cell/ICell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ourreversi/cell/ICell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ourreversi/cell/ICellPosition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ourreversi/cell/ICellPosition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ourreversi/cell/SquareCellPosition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ourreversi/cell/SquareCellPosition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ourreversi/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ourreversi/controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ourreversi/controller/IActionListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ourreversi/controller/IActionListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ourreversi/model/AbstractReversi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ourreversi/model/AbstractReversi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ourreversi/model/BasicReversi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ourreversi/model/BasicReversi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ourreversi/model/IReadOnlyModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ourreversi/model/IReadOnlyModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ourreversi/model/IReversi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ourreversi/model/IReversi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ourreversi/model/ModelStatusListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ourreversi/model/ModelStatusListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ourreversi/model/ReadOnlyModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ourreversi/model/ReadOnlyModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ourreversi/model/SquareReversi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ourreversi/model/SquareReversi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ourreversi/textualview/ITextualView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ourreversi/textualview/ITextualView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ourreversi/textualview/TextualView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ourreversi/textualview/TextualView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ourreversi/view/HintPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ourreversi/view/HintPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ourreversi/view/IReversiView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ourreversi/view/IReversiView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ourreversi/view/JSReversiPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ourreversi/view/JSReversiPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ourreversi/view/SimpleReversiView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ourreversi/view/SimpleReversiView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ourreversi/view/SquareJSReversiPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ourreversi/view/SquareJSReversiPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ourreversi/view/SquareReversiView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ourreversi/view/SquareReversiView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/TestBro.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/TestBro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/TestGUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/TestView.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/TestView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/testBasic.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/testBasic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/testController.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/testController.java" afterDir="false" />
     </list>
+    <list id="e28590a7-c634-44b2-b9e2-78ced78c7ad1" name="Changes by nanhuozhuque" comment="">
+      <change beforePath="$PROJECT_DIR$/test/testBasic.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/testBasic.java" afterDir="false" />
+    </list>
+    <list id="437c1e89-3162-4aed-9f9b-b96d0aa58dd3" name="nextTurn" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -33,9 +62,24 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 7
-}]]></component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/test/TestBasic.java">
+      <ranges>
+        <range start1="5" end1="7" start2="5" end2="911" changelist="928718c9-eb26-4d2d-a9ab-c1422c0cd768" />
+        <range start1="8" end1="9" start2="912" end2="926" changelist="928718c9-eb26-4d2d-a9ab-c1422c0cd768" />
+        <range start1="10" end1="11" start2="927" end2="1355" changelist="928718c9-eb26-4d2d-a9ab-c1422c0cd768" />
+        <range start1="12" end1="15" start2="1356" end2="1361" changelist="e28590a7-c634-44b2-b9e2-78ced78c7ad1" />
+        <range start1="16" end1="17" start2="1362" end2="1371" changelist="e28590a7-c634-44b2-b9e2-78ced78c7ad1" />
+        <range start1="18" end1="18" start2="1372" end2="1380" changelist="e28590a7-c634-44b2-b9e2-78ced78c7ad1" />
+      </ranges>
+    </file>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
   <component name="ProjectId" id="2X2QbBaCJdf9R61wg2tod9B73Hb" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -50,31 +94,325 @@
     "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "main",
     "jdk.selected.JAVA_MODULE": "temurin-11",
+    "last_opened_file_path": "/Users/ddfsco/Desktop/Intij/HW3/src",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
     "onboarding.tips.debug.path": "/Users/ddfsco/Desktop/Intij/HW3/src/Main.java",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager">
-    <configuration name="testBasic.tests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/src/OurReversi/model" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Reversi_Hard_Easy">
+    <configuration name="Easy OtherAny" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="ourreversi.Reversi" />
       <module name="HW3" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="testBasic" />
-      <option name="METHOD_NAME" value="tests" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="PROGRAM_PARAMETERS" value="Easy OtherAny" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Easy OtherAny" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="ourreversi.Reversi" />
+      <module name="HW3" />
+      <option name="PROGRAM_PARAMETERS" value="Easy OtherAny" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Hard OtherAny" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="ourreversi.Reversi" />
+      <module name="HW3" />
+      <option name="PROGRAM_PARAMETERS" value="Hard OtherAny" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Hard OtherAny" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="ourreversi.Reversi" />
+      <module name="HW3" />
+      <option name="PROGRAM_PARAMETERS" value="Hard OtherAny" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OtherAny OtherMax" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="ourreversi.Reversi" />
+      <module name="HW3" />
+      <option name="PROGRAM_PARAMETERS" value="OtherAny OtherMax" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OtherAny OtherMax" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="ourreversi.Reversi" />
+      <module name="HW3" />
+      <option name="PROGRAM_PARAMETERS" value="OtherAny OtherMax" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Reversi" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ourreversi.Reversi" />
+      <module name="HW3" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ourreversi.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Reversi" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ourreversi.Reversi" />
+      <module name="HW3" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ourreversi.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Reversi_Hard_Easy" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="ourreversi.Reversi" />
+      <module name="HW3" />
+      <option name="PROGRAM_PARAMETERS" value="basic 4 hard easy" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Reversi_Hard_Easy" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="ourreversi.Reversi" />
+      <module name="HW3" />
+      <option name="PROGRAM_PARAMETERS" value="hard easy" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Reversi_Hard_Hard" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="ourreversi.Reversi" />
+      <module name="HW3" />
+      <option name="PROGRAM_PARAMETERS" value="hard hard" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Reversi_Hard_Hard" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="ourreversi.Reversi" />
+      <module name="HW3" />
+      <option name="PROGRAM_PARAMETERS" value="hard hard" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Reversi_Hard_Human" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="ourreversi.Reversi" />
+      <module name="HW3" />
+      <option name="PROGRAM_PARAMETERS" value="hard human" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Reversi_Hard_Human" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="ourreversi.Reversi" />
+      <module name="HW3" />
+      <option name="PROGRAM_PARAMETERS" value="hard human" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Reversi_Human_Easy" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="ourreversi.Reversi" />
+      <module name="HW3" />
+      <option name="PROGRAM_PARAMETERS" value="human easy" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Reversi_Human_Easy" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="ourreversi.Reversi" />
+      <module name="HW3" />
+      <option name="PROGRAM_PARAMETERS" value="human easy" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Reversi_Square_human_human" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="ourreversi.Reversi" />
+      <module name="HW3" />
+      <option name="PROGRAM_PARAMETERS" value="square 4 hard easy" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Reversi_ourAdpate, hard" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="ourreversi.Reversi" />
+      <module name="HW3" />
+      <option name="PROGRAM_PARAMETERS" value="ouradpate hard" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Reversi_ourAdpate, hard" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="ourreversi.Reversi" />
+      <module name="HW3" />
+      <option name="PROGRAM_PARAMETERS" value="ouradpate hard" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="easy OtherMax" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="ourreversi.Reversi" />
+      <module name="HW3" />
+      <option name="PROGRAM_PARAMETERS" value="easy OtherMax" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="easy OtherMax" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="ourreversi.Reversi" />
+      <module name="HW3" />
+      <option name="PROGRAM_PARAMETERS" value="easy OtherMax" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="human OtherMax" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="ourreversi.Reversi" />
+      <module name="HW3" />
+      <option name="PROGRAM_PARAMETERS" value="human OtherMax" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="human OtherMax" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="ourreversi.Reversi" />
+      <module name="HW3" />
+      <option name="PROGRAM_PARAMETERS" value="human OtherMax" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestController" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="HW3" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestController" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestController" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="HW3" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestController" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestMockStrategy" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="HW3" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestMockStrategy" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestMockStrategy" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="HW3" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestMockStrategy" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestStrategy" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="HW3" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestStrategy" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestStrategy" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="HW3" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestStrategy" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestView" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="HW3" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestView" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestView" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="HW3" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestView" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Reversi_ourAdpate, hard" />
+      <item itemvalue="Application.Reversi_Human_Easy" />
+      <item itemvalue="Application.Reversi_Hard_Human" />
+      <item itemvalue="Application.Reversi_Hard_Easy" />
+      <item itemvalue="Application.easy OtherMax" />
+      <item itemvalue="Application.human OtherMax" />
+      <item itemvalue="Application.Hard OtherAny" />
+      <item itemvalue="Application.OtherAny OtherMax" />
+      <item itemvalue="Application.Easy OtherAny" />
+      <item itemvalue="Application.Reversi_Hard_Hard" />
+      <item itemvalue="Application.Reversi_Square_human_human" />
+      <item itemvalue="Application.Reversi" />
+      <item itemvalue="JUnit.TestController" />
+      <item itemvalue="JUnit.TestMockStrategy" />
+      <item itemvalue="JUnit.TestStrategy" />
+      <item itemvalue="JUnit.TestView" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.testBasic.tests" />
+        <item itemvalue="Application.Reversi" />
+        <item itemvalue="JUnit.TestController" />
+        <item itemvalue="JUnit.TestView" />
+        <item itemvalue="JUnit.TestMockStrategy" />
+        <item itemvalue="JUnit.TestStrategy" />
       </list>
     </recent_temporary>
   </component>
@@ -82,15 +420,73 @@
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="928718c9-eb26-4d2d-a9ab-c1422c0cd768" name="Changes" comment="" />
+      <changelist id="437c1e89-3162-4aed-9f9b-b96d0aa58dd3" name="nextTurn" comment="" />
       <created>1697824770418</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1697824770418</updated>
-      <workItem from="1697824773378" duration="4354000" />
+      <workItem from="1697824773378" duration="12523000" />
+      <workItem from="1698268299065" duration="8407000" />
+      <workItem from="1698420506073" duration="18230000" />
+      <workItem from="1698594241635" duration="11590000" />
+      <workItem from="1698685478901" duration="28844000" />
+      <workItem from="1698770093518" duration="8154000" />
+      <workItem from="1698787026789" duration="3599000" />
+      <workItem from="1698872159460" duration="30090000" />
+      <workItem from="1699480128725" duration="12332000" />
+      <workItem from="1699560560912" duration="14896000" />
+      <workItem from="1699914616226" duration="29474000" />
+      <workItem from="1700524747685" duration="48147000" />
+      <workItem from="1701124033218" duration="2687000" />
+      <workItem from="1701128791350" duration="894000" />
+      <workItem from="1701130205493" duration="14110000" />
+      <workItem from="1701203772216" duration="25971000" />
+      <workItem from="1701302613336" duration="16734000" />
+      <workItem from="1701621420893" duration="82362000" />
+      <workItem from="1702000675634" duration="27035000" />
+      <workItem from="1702181354726" duration="1272000" />
+      <workItem from="1702182679678" duration="2627000" />
+      <workItem from="1702233831649" duration="3851000" />
+      <workItem from="1702237703129" duration="1912000" />
+      <workItem from="1708781510823" duration="1261000" />
     </task>
+    <task id="LOCAL-00001" summary="New">
+      <option name="closed" value="true" />
+      <created>1697843937415</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1697843937415</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="New" />
+    <option name="LAST_COMMIT_MESSAGE" value="New" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="7" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

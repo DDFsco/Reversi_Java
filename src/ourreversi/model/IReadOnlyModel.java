@@ -1,9 +1,9 @@
-package OurReversi.model;
+package ourreversi.model;
 
 import java.util.List;
 
-import OurReversi.model.cell.Cell;
-import OurReversi.model.cell.CellPosition;
+import ourreversi.cell.ICell;
+import ourreversi.cell.ICellPosition;
 
 /**
  * Represent the read only model.
@@ -37,7 +37,7 @@ public interface IReadOnlyModel {
    * @return A list of all cells on the game board.
    * @throws IllegalStateException if the game has not been started.
    */
-  List<Cell> getAllCells();
+  List<ICell> getAllCells();
 
   /**
    * Retrieves the list of cells surrounding a given cell. The cells are
@@ -49,7 +49,7 @@ public interface IReadOnlyModel {
    * @throws IllegalStateException if the game has not been started.
    * @throws NullPointerException  if the provided cell is null.
    */
-  Cell getCellOnPosition(CellPosition posn);
+  ICell getCellOnPosition(ICellPosition posn);
 
 
   /**
@@ -69,7 +69,7 @@ public interface IReadOnlyModel {
    * @return The chosen cell or null if no cell has been chosen.
    * @throws IllegalStateException if the game has not been started.
    */
-  Cell getChosenCell();
+  ICell getChosenCell();
 
   /**
    * Retrieves the current player who is to make the next move.
@@ -103,7 +103,7 @@ public interface IReadOnlyModel {
    * @param player   The player who is making the move.
    * @return int Amount of cell that is able to flip.
    */
-  int numAbleToFlip(Cell destCell, PlayerIdentity player);
+  int numAbleToFlip(ICell destCell, PlayerIdentity player);
 
   /**
    * Return a reference type of all cells can go in this turn.
@@ -111,7 +111,7 @@ public interface IReadOnlyModel {
    * @return a list of cell
    * @throws IllegalStateException if game not started yet.
    */
-  List<Cell> getAllCellsCanGo();
+  List<ICell> getAllCellsCanGo();
 
   /**
    * Retrieves the list of cells surrounding a given cell.
@@ -122,7 +122,7 @@ public interface IReadOnlyModel {
    * @throws IllegalStateException if the game has not been started.
    * @throws NullPointerException  if the provided cell is null.
    */
-  List<Cell> getSurroundingCells(Cell c);
+  List<ICell> getSurroundingCells(ICell c);
 
   /**
    * Check whether the destination Cell is a valid Cell for current player to put a chess.
@@ -140,7 +140,7 @@ public interface IReadOnlyModel {
    * @param player   The player who is making the move.
    * @return true if the move is valid, false otherwise.
    */
-  boolean validMove(Cell destCell, PlayerIdentity player);
+  boolean validMove(ICell destCell, PlayerIdentity player);
 
   /**
    * Start the game, run the game.

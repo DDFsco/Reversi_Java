@@ -1,4 +1,4 @@
-package OurReversi.model.cell;
+package ourreversi.cell;
 
 import static java.util.Objects.requireNonNull;
 
@@ -7,7 +7,7 @@ import static java.util.Objects.requireNonNull;
  */
 public class Cell implements ICell {
 
-  private CellPosition posn;
+  private ICellPosition posn;
   private CellStatus cellStatus;
 
   /**
@@ -17,7 +17,7 @@ public class Cell implements ICell {
    * @param cellStatus The status of the cell, which can be BLACK, WHITE, or EMPTY.
    * @throws NullPointerException if either posn or cellStatus is null.
    */
-  public Cell(CellPosition posn, CellStatus cellStatus) {
+  public Cell(ICellPosition posn, CellStatus cellStatus) {
     requireNonNull(posn);
     requireNonNull(cellStatus);
 
@@ -31,7 +31,7 @@ public class Cell implements ICell {
    * @return The position of the cell.
    */
   @Override
-  public CellPosition getPosition() {
+  public ICellPosition getPosition() {
     return this.posn;
   }
 
@@ -54,12 +54,13 @@ public class Cell implements ICell {
    *         false if they contain different colors or any is empty.
    * @throws NullPointerException if the input cell is null.
    */
-  public boolean sameColorChess(Cell that) {
+  public boolean sameColorChess(ICell that) {
     requireNonNull(that);
-    if (this.cellStatus == CellStatus.EMPTY || that.cellStatus == CellStatus.EMPTY) {
+    Cell thatCell = (Cell)that;
+    if (this.cellStatus == CellStatus.EMPTY || thatCell.cellStatus == CellStatus.EMPTY) {
       return false;
     }
-    return this.cellStatus == that.cellStatus;
+    return this.cellStatus == thatCell.cellStatus;
   }
 
   /**

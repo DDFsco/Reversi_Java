@@ -1,4 +1,4 @@
-package OurReversi.model.cell;
+package ourreversi.cell;
 
 
 /**
@@ -12,7 +12,7 @@ public interface ICell {
    *
    * @return The position of the cell.
    */
-  CellPosition getPosition();
+  ICellPosition getPosition();
 
   /**
    * Retrieves the status of this cell, indicating whether it's occupied.
@@ -38,7 +38,7 @@ public interface ICell {
    *          false if they contain different colors or any is empty.
    * @throws NullPointerException if the input cell is null.
    */
-  boolean sameColorChess(Cell that);
+  boolean sameColorChess(ICell that);
 
   /**
    * Compares this cell with another object for equality based on cell.

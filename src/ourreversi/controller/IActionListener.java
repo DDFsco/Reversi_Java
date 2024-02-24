@@ -1,7 +1,8 @@
-package OurReversi.model.controller;
+package ourreversi.controller;
 
 import java.awt.event.KeyEvent;
-import OurReversi.model.cell.CellPosition;
+
+import ourreversi.cell.ICellPosition;
 
 /**
  * Represent the listener of Reversi for all feature actions.
@@ -22,7 +23,7 @@ public interface IActionListener {
    *
    * @param cell Cell position been pressed.
    */
-  void handleMousePressed(CellPosition cell);
+  void handleMousePressed(ICellPosition cell);
 
   /**
    * Run if the controller is an AI player.
@@ -39,4 +40,5 @@ public interface IActionListener {
    * Shows the game over scene.
    */
   void letPanelShowGameOver();
+
 }

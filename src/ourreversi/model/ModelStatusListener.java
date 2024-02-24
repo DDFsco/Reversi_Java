@@ -1,6 +1,6 @@
-package OurReversi.model;
+package ourreversi.model;
 
-import OurReversi.model.controller.IActionListener;
+import ourreversi.controller.IActionListener;
 
 /**
  * Represent the model listener triggered when model gets modified.

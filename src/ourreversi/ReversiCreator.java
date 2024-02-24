@@ -1,13 +1,9 @@
-package OurReversi.model;
+package ourreversi;
 
-import OurReversi.model.AIPlayer;
-import OurReversi.model.IPlayer;
-import OurReversi.model.Player;
-import OurReversi.model.PlayerIdentity;
-
-import static OurReversi.model.AIPlayer.GameLevel.Easy;
-import static OurReversi.model.AIPlayer.GameLevel.Hard;
-import static OurReversi.model.AIPlayer.GameLevel.Medium;
+import ourreversi.model.AIPlayer;
+import ourreversi.model.IPlayer;
+import ourreversi.model.Player;
+import ourreversi.model.PlayerIdentity;
 
 /**
  * Represent Reversi game creator.
@@ -23,7 +19,9 @@ public class ReversiCreator {
     HUMAN,
     EASY,
     MEDIUM,
-    HARD;
+    HARD,
+    OTHERANY,
+    OTHERMAX,
 
   }
 
@@ -35,11 +33,16 @@ public class ReversiCreator {
       case HUMAN:
         return new Player(identity);
       case EASY:
-        return new AIPlayer(identity, Easy);
+        return new AIPlayer(identity, AIPlayer.GameLevel.Easy);
       case MEDIUM:
-        return new AIPlayer(identity, Medium);
+        return new AIPlayer(identity, AIPlayer.GameLevel.Medium);
       case HARD:
-        return new AIPlayer(identity, Hard);
+        return new AIPlayer(identity, AIPlayer.GameLevel.Hard);
+      case OTHERANY:
+        return new AIPlayer(identity, AIPlayer.GameLevel.OtherAny);
+      case OTHERMAX:
+        return new AIPlayer(identity, AIPlayer.GameLevel.OtherMax);
+
       default:
         throw new IllegalArgumentException("Invalid player type");
     }

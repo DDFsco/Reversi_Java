@@ -1,13 +1,17 @@
-package OurReversi.model.view;
+package ourreversi.view;
 
 import javax.swing.JFrame;
+import javax.swing.JLayeredPane;
 import javax.swing.JOptionPane;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.Rectangle;
 
-import OurReversi.model.controller.IActionListener;
-import OurReversi.model.IPlayer;
-import OurReversi.model.IReadOnlyModel;
-import OurReversi.model.Player;
-import OurReversi.model.PlayerIdentity;
+import ourreversi.controller.IActionListener;
+import ourreversi.model.IReadOnlyModel;
+import ourreversi.model.IPlayer;
+import ourreversi.model.Player;
+import ourreversi.model.PlayerIdentity;
 
 import static javax.swing.JOptionPane.showMessageDialog;
 
@@ -29,11 +33,25 @@ public class SimpleReversiView extends JFrame implements IReversiView {
    */
   public SimpleReversiView(IReadOnlyModel model) {
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    this.setLayout(new BorderLayout());
+    this.setSize(800, 800); // Set the size before calculating bounds
+    JLayeredPane layer = new JLayeredPane();
+    layer.setPreferredSize(new Dimension(getWidth(), getHeight())); // Set the preferred size
+
     JSReversiPanel panel = new JSReversiPanel(model);
+    panel.setBounds(new Rectangle(getWidth(), getHeight()));
+    panel.setOpaque(true); // If you want your panel to paint its background
+
+    HintPanel hint = new HintPanel(model, panel);
+    hint.setBounds(new Rectangle(getWidth(), getHeight()));
+    layer.add(hint, JLayeredPane.PALETTE_LAYER);
     this.model = model;
     this.panel = panel;
-    this.add(panel);
-    this.setSize(800, 800);
+
+    layer.add(panel, JLayeredPane.DEFAULT_LAYER);
+    this.add(layer);
+
+    this.setVisible(true); // Set the JFrame visible
   }
 
   /**
@@ -144,5 +162,11 @@ public class SimpleReversiView extends JFrame implements IReversiView {
     showMessageDialog(this, message, "Chosen error",
             JOptionPane.INFORMATION_MESSAGE);
   }
-}
 
+  /**
+   * Set the player identity.
+   */
+  public void setPlayer(PlayerIdentity identity) {
+    panel.setPlayerIdentity(identity);
+  }
+}

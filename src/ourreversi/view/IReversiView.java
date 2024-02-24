@@ -1,8 +1,9 @@
-package OurReversi.model.view;
+package ourreversi.view;
 
-import OurReversi.model.controller.IActionListener;
-import OurReversi.model.IPlayer;
-import OurReversi.model.IReadOnlyModel;
+import ourreversi.controller.IActionListener;
+import ourreversi.model.IReadOnlyModel;
+import ourreversi.model.IPlayer;
+import ourreversi.model.PlayerIdentity;
 
 /**
  * Represent the Reversi View, which only observe the model.
@@ -56,4 +57,6 @@ public interface IReversiView {
    * Inform the player if there is no cell been chosen.
    */
   void showCellError();
+
+  void setPlayer(PlayerIdentity identity);
 }

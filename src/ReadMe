@@ -32,6 +32,8 @@ There are 4 type of configure argument: human, easy, medium, hard
 -- Easy -- strategy1 is an easy AI player
 -- Medium -- strategy2 is an medium AI player
 -- Hard -- strategy3 is an hard AI player
+-- OTHERANY -- Client strategy AI
+-- OTHERMAX -- Client strategy2 AI
 The configuration takes in 2 argument for two player
 -- First argument will be the Black player
 -- Second argument will be the White player
@@ -158,16 +160,94 @@ Cell Position : x = 0, y = 0, z = 0
 Changes made:
 
 Model Enhancements
-Controller Notification System: We have augmented our Reversi model to include a mechanism that notifies all controllers when any one of them triggers an event. This ensures synchronous updates across different components of the game.
+Controller Notification System: We have augmented our Reversi model to include a mechanism that notifies all controllers
+ when any one of them triggers an event. This ensures synchronous updates across different components of the game.
 
-Controller Tracking: Our model now maintains a record of all the controllers involved in the game. This enhancement allows the model to effectively communicate with each controller and prompt them to update their respective views as needed.
-Next Turn Logic: We revised the game's update logic. Now, whenever a new turn is initiated, all controllers are instructed to update their views to reflect the latest state of the game.
+Controller Tracking: Our model now maintains a record of all the controllers involved in the game. This enhancement
+allows the model to effectively communicate with each controller and prompt them to update respective views as needed.
+Next Turn Logic: We revised the game's update logic. Now, whenever a new turn is initiated, all controllers are
+instructed to update their views to reflect the latest state of the game.
 ReadOnlyModel Integration
 
-Implementation of ReadOnlyModel: Addressing the feedback from our previous assignment, we have introduced a ReadOnlyModel into our game architecture. This model variant provides a read-only interface to the game state, ensuring that views do not have the capability to alter the game directly. Notably, the ReadOnlyModel does not permit actions such as making moves or passing turns.
+Implementation of ReadOnlyModel: Addressing the feedback from our previous assignment, we have introduced a
+ReadOnlyModel into our game architecture. This model variant provides a read-only interface to the game state,
+ensuring that views do not have the capability to alter the game directly. Notably, the ReadOnlyModel does not
+permit actions such as making moves or passing turns.
 
 Strategy Module Refinement
-MinimizePlayerStrategy Bug Fix: A critical bug in the MinimizePlayerStrategy class has been rectified. Previously, the game-over state was not being correctly displayed when the last AI player made a move. This issue has now been resolved, ensuring accurate game state representation.
+MinimizePlayerStrategy Bug Fix: A critical bug in the MinimizePlayerStrategy class has been rectified.
+Previously, the game-over state was not being correctly displayed when the last AI player made a move.
+This issue has now been resolved, ensuring accurate game state representation.
 
 View and Controller Integration
-Enhanced View-Controller Connection: We have strengthened the link between the view and the controller components. Each panel within the view now includes handler settings that relay mouse and keyboard events directly to the controller. Consequently, any interaction within the view (such as key presses or mouse clicks) effectively triggers the corresponding controller actions.
+Enhanced View-Controller Connection: We have strengthened the link between the view and the controller components.
+Each panel within the view now includes handler settings that relay mouse and keyboard events directly to the
+controller. Consequently, any interaction within the view (such as key presses or mouse clicks) effectively triggers
+the corresponding controller actions.
+--------------------------------------------------------------------------------
+Changes Made Part4:
+
+We added an interface name ICellPosition represent the cell position class. We replace all
+usage of Cell and CellPosition to ICell and ICellPosition.
+
+--------------------------------------------------------------------------------
+Part4:
+
+Our recent integration included incorporating the client's strategy into our AI player,
+enabling the use of the client's AI within the game's configuration. This enhancement
+has allowed us to broaden the game's AI capabilities.
+
+We successfully adapted the client's view to interface with our controller and model.
+This adaptation ensured that features such as key presses and mouse clicks were fully
+functional and integrated within the client's view.
+
+However, we encountered a limitation with the client's strategy implementation.
+The client's AI lacks a crucial validation step to ensure chosen cells are valid moves.
+This oversight leads to scenarios where the AI selects cells already occupied, which we
+identified through turn-by-turn verification. Since our policy prevents modification of
+client code, we cannot rectify this behavior, resulting in the AI potentially stalling on
+invalid moves—this is an issue that falls outside our scope of responsibility.
+
+Despite this challenge with the strategy component, the integration of the client's view
+into our game system was successful.
+
+Now the .jar default setting has their view and our view at the same time. Player1 is our view
+Player2 is client view.
+
+Client View key control:
+- "SPACE" : Pass the turn
+- "ENTER" : Place the cell
+
+Client Strategy:
+-- OTHERANY -- Client strategy AI
+-- OTHERMAX -- Client strategy2 AI
+--------------------------------------------------------------------------------
+Extra Credit:
+   * The main runner of the reversi game.
+   * Takes 4 arguments maximum.
+   * - Game mode: basic , square
+   * - Size: (Default: 5 for basic, 4 for square)
+   * - Player1: human or AI
+   * - Player2: human or AI
+
+For example: Create a square 8 column & row, human vs human game
+- square 4 human human
+- square 4
+- square
+
+For example: Create a basic standard hexagon grid, Easy AI vs human game
+- basic 5 easy human
+--------------------------------------------------------------------------------
+Extra credit:
+Level0: We credit a decorated panel name HintPanel, which is a extra functionality
+        provide player a hint displacement. Player could press hint button to open the hint
+        displacement. Close it, when pressed it again.
+Level1: We implements a square reversi model, which extend from our abstract reversi.
+        The model re-implement all the interface method from IReversi.
+Level2: We implements the square reversi view, which implement the IReversiView, and
+        implements all the method from IReversiView. The coordinate using (x,y) coordinate.
+        Where (0,0) is at the top left corner of the game grid.
+Level3: Base on our previous design of controller. We don't have to change any code
+        for our controller to use this square reversi.
+Level4: Base on our previous design of strategy. We don't have to change any code
+        for our strategy to use this square reversi.

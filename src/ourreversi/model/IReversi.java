@@ -1,7 +1,7 @@
-package OurReversi.model;
+package ourreversi.model;
 
-import OurReversi.model.cell.Cell;
-import OurReversi.model.cell.CellPosition;
+import ourreversi.cell.ICell;
+import ourreversi.cell.ICellPosition;
 
 /**
  * Represent the interface of Reversi model.
@@ -47,7 +47,7 @@ public interface IReversi extends IReadOnlyModel, ModelStatusListener {
    *                               piece or the game has not been started.
    * @throws NullPointerException  if cellPosition is null.
    */
-  void playerChooseCell(CellPosition cellPosition);
+  void playerChooseCell(ICellPosition cellPosition);
 
   /**
    * Player deselect the cell they chose.
@@ -82,7 +82,7 @@ public interface IReversi extends IReadOnlyModel, ModelStatusListener {
    * @param player   The player who is making the move.
    * @return int Amount of cell that is able to flip.
    */
-  int numAbleToFlip(Cell destCell, PlayerIdentity player);
+  int numAbleToFlip(ICell destCell, PlayerIdentity player);
 
   /**
    * Set the player with provided player identity.

@@ -1,4 +1,4 @@
-package OurReversi.model.textualview;
+package ourreversi.textualview;
 
 
 /**
