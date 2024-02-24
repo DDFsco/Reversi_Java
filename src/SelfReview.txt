@@ -1,0 +1,30 @@
+Reflecting on Design/Implementation
+Looking back at the design and implementation phases of this exercise,
+I recognize areas where alternative approaches could have led to a more
+refined product. Specifically, the decision to intertwine UI components
+with game logic in the HexButton class, though seemingly efficient at first,
+became a source of complexity that could hinder future modifications and scalability.
+A lesson learned from the code provided by our peers was the value of a clear
+separation of concerns; keeping the visual elements distinct from the game state
+management would have fostered a more modular and adaptable system.
+
+Moreover, the encounter with the PlayerColor enumeration serving dual purposes
+prompted a realization about the importance of singular responsibility.
+It highlighted the potential for ambiguity and the benefits of creating specialized,
+purpose-driven constructs within the code.
+
+Interaction with Providers
+While the code was structurally sound and well-documented, which facilitated our understanding and
+integration efforts, the providers' design choices occasionally led us down
+paths that required careful navigation and adjustments. For instance,
+the direct handling of key signals in the view rather than through the controller
+presented a challenge that we had to overcome by restructuring the event
+handling mechanism.
+
+However, the providers were responsive and open to feedback, which made the
+collaborative process productive. Their willingness to engage in discussions
+about design rationales. It fostered a constructive environment
+where both parties could learn from each other's perspectives and approaches.
+
+In conclusion, the exercise was enlightening, underscoring the importance of
+clear design principles and effective communication with collaborators.

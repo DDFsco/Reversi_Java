@@ -1,0 +1,173 @@
+Reversi
+
+BasicModel has all functionalities that make the user play the Reversi game
+When BaiscModel get constructed, it initialize a board that contain a hexagon
+shape with (2 * "size" + 1) number of rows and columns.
+
+All the cells will be set to "Empty" at the beginning of the game, except the
+middle six cells will be set to "Black" and "White" respectively.
+
+All the cells' position will be base on x, y and z position. (0,0,0) will be the
+center of the grid. Here is the reference:
+https://stackoverflow.com/questions/2459402/hexagonal-grid-coordinates-to-pixel-coordinates
+--------------------------------------------------------------------------------
+ This is the Example position of cells in a size of 2 board:
+           (0,-2,2) (-1,-1,2) (-2,0,2)
+        (1,-2,1) (0,-1,1) (-1,0,1) (-2,1,1)
+   (2,-2，0) (1,-1，0) (0,0,0) (-1,1，0) (-2,2,0)
+      (2,-1,-1) (1,0,-1) (0,1,-1) (-1,2,-1)
+           (2,0,-2) (1,1,-2) (0,2,-2)
+
+To play this game with model only:
+1. Construct a BasicModel with a size.
+    E.g: IReversi model = new BasicReversi();
+         model.initializeReversi(2); // Size of 2, as example above
+2. Call playerChooseCell(Position chosenPosition) to let the player choose a position want to play
+    e.g: playerChooseCell(new Position(0,0,0))
+3. Call playerMove() to confirm the move and place the chosenPosition with the player's color
+
+To play this game with model with GUI from configuration:
+There are 4 type of configure argument: human, easy, medium, hard
+-- Human -- is a human player
+-- Easy -- strategy1 is an easy AI player
+-- Medium -- strategy2 is an medium AI player
+-- Hard -- strategy3 is an hard AI player
+The configuration takes in 2 argument for two player
+-- First argument will be the Black player
+-- Second argument will be the White player
+(If there are less than 2 argument, system auto fill the empty player as human player.)
+(e.g: "hard" "    " -> "hard" "human")
+
+Quick Start (For configuration):
+// Configure example: "human hard"
+// Run the configuration.
+// Pick any hexagon that you think is available.
+// Press "Enter" to confirm cell you pick.
+// Press "P" to pass your turn.
+--------------------------------------------------------------------------------
+
+Game is over if the both player passed their turn, regardless player been
+forced to passed(no available move) or player pass the turn by themselves
+
+Model has handle the score and winner
+View has handle the displace of score and winner
+Score and winner will displace on pop out at the end of game.
+--------------------------------------------------------------------------------
+The source code is organized into several directories corresponding
+to the main components of the game:
+/src/model:
+    Contains BasicModel and other related classes that define the game's logic.
+    ReadOnlyModel for View to observe the model.
+    Model remember all the controllers. Whenever one of controller gets triggered
+    Model has method inform all the controller that world has been changed. All
+    controller should update their view.
+/src/view:
+    Includes classes responsible for rendering the game state to the user.
+    Panel for rendering the game scene
+    Frames displace the panel, and any pop out window.
+/src/controller:
+    Control the model, which controller is trigger by their own view,
+    Each controller has their independent view.
+    Model has all the controllers.
+
+Key Components:
+    BasicModel: This is the core component that manages the game state,
+                initializes the board, and processes player moves.
+    ReadOnlyModel: For observer pattern, ReadOnlyModel for view to observe the model
+                   without able to modify anything from the model.
+    Player: Player class holds the information of the player, whether the player is white
+            or black player. And the whether the player is an AI.
+    AIPlayer: This is an dictionary which tells what kind of AI we have, and what are
+              the strategies each AI have.
+
+    view.SimpleReversiView: This is the JFrame view for Reversi game. Contains game scene
+                            panel, pop out windows, etc.
+    controller.Controller: Control the model of the game. When View been called, trigger
+                           the controller to modify the model. Each controller is one player
+                           Each player has a View.
+--------------------------------------------------------------------------------
+GUI: View
+ Reversi GUI uses Java Swing with Panel and Frame
+ SimpleReversiView is the frame which takes in ReadOnlyModel.
+ GUI is use for player interface - which player could:
+ - Click on a hexagon, system out the position been clicked
+    . This hexagon turn blue.
+ - De-select the selected hexagon, this hexagon color turn blue to gray
+    . deselect a selected cell by
+        (1) clicking on it again,
+        (2) clicking on another cell (in which case you should select that new cell),
+        (3) clicking outside the boundary of the board.
+- Press "P" to pass the "p" key signal to controller.
+- Press "Enter" to pass the "enter" key signal to controller.
+--------------------------------------------------------------------------------
+Controller:
+ Reversi has multiple controllers. Each player would have controller, each controller
+ trigger by their own view. Controller is able to modify the information from model.
+
+ Controller has feature:
+ - Pass the turn for this player when "P" received.
+ - Confirm the cell when "Enter" received.
+ - If the controller is control by an AI, base on AI's strategy play the move.
+--------------------------------------------------------------------------------
+Strategy :
+Every strategy is independent, and can combine with each other in any order.
+Each strategy takes in :
+    1. a model(a simulated model, not the model for the game)
+    2. a given player (the current player)
+Return :
+    1. a Cell (that meet the requirements in given strategies.)
+
+Details about how strategies works:
+- Assume the player can at least move in 1 position. If the player is unable to move in this
+  turn, the controller will handle the player pass action if the strategy fall back's final
+  result is null.
+- In strategy fall back,
+  If the first strategy works, it will return the result from the first strategy;
+  If the first one doesn't work, it will continue on trying the second strategy;
+  If none of the strategies work, it will return null, and pass the null value for controller
+  to handle.
+
+All STRATEGIES
+(assume input list contains at least 1 cell):
+[For all strategies, if there is multiple cell fulfill the condition,
+ choose the upmost leftmost cell.]
+1. FlipMost: return the cell that will flip the most chess.
+2. ChooseCorner: return the corner cell in the provided list.
+3. NoNextToCorner: return the cell that is not next to the corner.
+4. MinimizeNextPlayerChoice: return the cell that can minimize the maximum number of chess
+                             Flip-Most cell can flip for next player.
+
+--------------------------------------------------------------------------------
+Mock Test:
+The mock model is going to append the string of cell position. Mock model is going to gives AI
+strategy a list of all possible positions to move, and AI strategy is going to return a position
+that current strategy going to move.
+
+Mock test is going to append all the strings and shows the model and strategy have verified all
+positions on the board. Here is an example of calling one strategy on mock model.
+////////////////////////////////////////////////////////////////
+The following cell positions are check
+[Get the valid position for placing chess]
+Position checked : x = 0, y = 0, z = 0
+Run getAllCellsCanGo, the cells in following positions are returned:
+Cell Position : x = 0, y = 0, z = 0
+////////////////////////////////////////////////////////////////
+
+--------------------------------------------------------------------------------
+
+Changes made:
+
+Model Enhancements
+Controller Notification System: We have augmented our Reversi model to include a mechanism that notifies all controllers when any one of them triggers an event. This ensures synchronous updates across different components of the game.
+
+Controller Tracking: Our model now maintains a record of all the controllers involved in the game. This enhancement allows the model to effectively communicate with each controller and prompt them to update their respective views as needed.
+Next Turn Logic: We revised the game's update logic. Now, whenever a new turn is initiated, all controllers are instructed to update their views to reflect the latest state of the game.
+ReadOnlyModel Integration
+
+Implementation of ReadOnlyModel: Addressing the feedback from our previous assignment, we have introduced a ReadOnlyModel into our game architecture. This model variant provides a read-only interface to the game state, ensuring that views do not have the capability to alter the game directly. Notably, the ReadOnlyModel does not permit actions such as making moves or passing turns.
+
+Strategy Module Refinement
+MinimizePlayerStrategy Bug Fix: A critical bug in the MinimizePlayerStrategy class has been rectified. Previously, the game-over state was not being correctly displayed when the last AI player made a move. This issue has now been resolved, ensuring accurate game state representation.
+
+View and Controller Integration
+Enhanced View-Controller Connection: We have strengthened the link between the view and the controller components. Each panel within the view now includes handler settings that relay mouse and keyboard events directly to the controller. Consequently, any interaction within the view (such as key presses or mouse clicks) effectively triggers the corresponding controller actions.
